@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>form produk</title>
+</head>
+<body>
+    
+    <div class="Container">
+
+        <h1>Form Produk</h1>
+    
+            <label >Kode produk</label>
+            <input type="text" id="kode-Produk" readonly>
+
+            <label id="nama-produk">Nama produk</label>
+            <input type="text" id="nama-Produk">
+   
+        <label>Harga produk</label>
+            <input type="number" id="harga-Produk">
+    
+            <label>Satuan</label>
+            <select id="satuan-Produk">
+                <option value="Gelas">Gelas</option>
+                <option>Pcs</option>
+                <option>Kardus</option>
+            </select>
+    
+            <label>Kategori</label>
+            <select id="kategori-Produk">
+                <option>Minuman dingin</option>
+                <option>Minuman panas</option>
+            </select>
+    
+            <label>URL gambar</label>
+            <input type="text" id="gambar-Produk">
+    
+            <label>Stok</label>
+            <input type="number" id="stok-Produk">
+
+        <button id="tombol"onclick="menyimpanProduk()">Submit</button>
+        
+    </div>
+
+     <br>
+
+     <table>
+        <thead>
+        <tr>
+            <th>Nomor</th>
+            <th>kode produk</th>
+            <th>Nama produk</th>
+            <th>Harga produk</th>
+            <th>Satuan</th>
+            <th>Kategori</th>
+            <th>url gambar</th>
+            <th>Stok awal</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody id="t-body">
+        <tr>
+            <td>1</td>
+            <td>001</td>
+            <td>Sprite</td>
+            <td>7000</td>
+            <td>3000</td>
+            <td>minuman dingin</td>
+            <td><img src="data:image/webp;base64,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" width="100" height="100"></td>
+            <td>69</td>
+            <td>Edit/delete</td>
+        </tr>
+    </tbody>
+     </table>
+
+     <script src="dot.js"></script>
+</body>
+</html>
